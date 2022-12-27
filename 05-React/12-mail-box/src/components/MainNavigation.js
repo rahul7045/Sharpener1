@@ -23,7 +23,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           {show && <NavLink to='/compose'>Compose Email</NavLink>}
-          {show && <Nav.Link >Inbox</Nav.Link>}
+          {show && <NavLink to='/inbox' >Inbox Email</NavLink>}
 
         </Nav>
         {show && <Button onClick={logoutHandler} className='float-right mr-3'>Logout</Button>}

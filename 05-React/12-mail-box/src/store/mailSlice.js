@@ -1,10 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState ={mailData :[]}
+const initialState ={mailData :[], firstTime : true}
 const mailSlice =createSlice({
     name : 'mail',
     initialState,
     reducers :{
+        firstTime(state , action){
+            state.firstTime = action.payload
+        },
+        replace(state , action){
+            state.mailData = action.payload.mailData
+            state.firstTime = false
+        },
         add(state , action){
             state.mailData =[action.payload , ...state.mailData]
         },

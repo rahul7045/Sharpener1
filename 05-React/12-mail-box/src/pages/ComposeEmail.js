@@ -8,9 +8,8 @@ import { EditorState } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import './ComposeEmail.css'
 
-import { mailAction } from "../store/mailSlice";
 import {useDispatch} from 'react-redux'
-
+import { addMail } from "../store/mailActions";
 const ComposeEmail = () => {
   const dispatch = useDispatch()
   const inputMailRef =useRef()
@@ -25,14 +24,14 @@ const ComposeEmail = () => {
   const composeMailHandler=(event)=>{
      event.preventDefault();
     console.log("compose button clicked")
-    const mailData = JSON.stringify({
+    const mailData = {
       from : localStorage.getItem('email'),
       to : inputMailRef.current.value,
       title : inputSubjectRef.current.value,
       message : editorState.getCurrentContent().getPlainText()
-    })
+    }
     console.log(mailData)
-    dispatch(mailAction.add(mailData))
+    dispatch(addMail(mailData))
     inputMailRef.current.value=""
      inputSubjectRef.current.value=""
      setEditorState(null)
