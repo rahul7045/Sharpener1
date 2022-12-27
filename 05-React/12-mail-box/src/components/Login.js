@@ -1,6 +1,8 @@
 import React, { useState ,useRef} from "react";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+import {useDispatch } from 'react-redux'
+import { authAction } from "../store/authSlice";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -10,6 +12,7 @@ import "./Login.css";
 const Login = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [login, setLogin] = useState(false);
   const inputEmailRef = useRef()
   const inputPasswordRef = useRef()
@@ -41,8 +44,9 @@ const Login = () => {
             method : "POST",
             body :JSON.stringify({
                 email: inputEmailRef.current.value,
-                password : inputPasswordRef.current.value
-            }),
+                password : inputPasswordRef.current.value,
+                returnSecureToken: true
+              }),
             headers :{
                  'Content-type':'application/json'
             }  
@@ -51,6 +55,7 @@ const Login = () => {
         if(res.ok){
             const data = await res.json();
             console.log(data)
+            dispatch(authAction.login())
             localStorage.setItem('idToken',data.idToken)
             localStorage.setItem('email',data.email)
             inputEmailRef.current.value=""
