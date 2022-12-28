@@ -11,6 +11,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const show = useSelector(state=>state.auth.isLoggedIn)
+    const unReadMessage = useSelector(state=>state.mail.unReadMessage)
     const logoutHandler=()=>{
         dispatch(authAction.logout())
         navigate('/')
@@ -23,7 +24,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           {show && <NavLink to='/compose'>Compose Email</NavLink>}
-          {show && <NavLink to='/inbox' >Inbox Email</NavLink>}
+          {show && <NavLink to='/inbox' >Inbox Email {unReadMessage}</NavLink>}
 
         </Nav>
         {show && <Button onClick={logoutHandler} className='float-right mr-3'>Logout</Button>}

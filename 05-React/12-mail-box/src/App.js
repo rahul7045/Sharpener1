@@ -1,8 +1,9 @@
 import { Fragment } from "react";
 import "./App.css";
 import Login from "./components/Login";
+import MailPage from "./components/MailPage";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route , Outlet } from "react-router-dom";
 import Home from "./pages/Home";
 import ComposeEmail from "./pages/ComposeEmail";
 import MainNavigation from "./components/MainNavigation";
@@ -16,7 +17,9 @@ function App() {
         <Route path="/" element={<Login/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/compose" element={<ComposeEmail />} />
-        <Route path="/inbox" element={<InboxEmail />} />
+        <Route path="/inbox/*" element={<InboxEmail />}  />
+        {/* <Route path='/inbox/page' element={<MailPage  />} /> */}
+        <Route path="/inbox/:id" element={<MailPage />} />
       </Routes>
     </Fragment>
   );

@@ -1,7 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector  } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import MailData from '../components/MailData';
+
 
  const InboxEmail = () => {
 
@@ -10,13 +12,14 @@ import MailData from '../components/MailData';
     const inboxMail = mails.filter(mail=>mail.to === email )
 
     const mailItem = inboxMail.map(mail=>(
-        <MailData key={mail.id} mail={mail} toorFrom='From' />
+       <NavLink to={`/inbox/${mail.id}`}> <MailData key={mail.id} mail={mail} toorFrom='From' /></NavLink>
     ))
 
   return (
     <div>
     {mailItem}
     </div>
+
   )
 }
 

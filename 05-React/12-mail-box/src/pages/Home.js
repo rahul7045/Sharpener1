@@ -14,7 +14,7 @@ import { replacemail } from '../store/mailActions'
   if(isLoggedIn && firstTime){
     const loggedEmail = localStorage.getItem('email');
     const emailUrl = loggedEmail.replace("@","").replace(".","")
-    dispatch(replacemail(emailUrl , loggedEmail))
+    dispatch(replacemail(emailUrl ,loggedEmail))
   }
 
   return (
