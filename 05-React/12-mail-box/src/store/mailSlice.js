@@ -17,6 +17,7 @@ const mailSlice =createSlice({
             state.mailData =[action.payload , ...state.mailData]
         },
         remove(state , action){
+            console.log(action.payload)
             state.mailData = state.mailData.filter(mail=>mail.id!==action.payload.id)
         }
     }

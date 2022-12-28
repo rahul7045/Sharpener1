@@ -2,9 +2,18 @@ import React from "react";
 import { Fragment } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./MailData.css";
+import { useDispatch } from "react-redux";
+
+import { deleteMail } from "../store/mailActions";
 
 
 const MailData = (props) => {
+  const dispatch = useDispatch()
+
+  const deleteMailHandler=()=>{
+          dispatch(deleteMail(props.mail))
+  }
+
   return (
     <Fragment>
       <Container>
@@ -18,9 +27,9 @@ const MailData = (props) => {
             <b>{props.mail.from}</b>
           </Col>
           <Col xs={5}>{props.mail.title}</Col>
-          <Col xs={2}>
-            <Button variant="danger">Delete</Button>
-          </Col>
+          {/* <Col xs={2}>
+            <Button style={{zIndex:3}} onClick={deleteMailHandler} variant="danger">Delete</Button>
+          </Col> */}
           <hr />
         </Row>
       </Container>
