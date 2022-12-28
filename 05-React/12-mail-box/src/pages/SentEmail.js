@@ -7,7 +7,7 @@ import MailData from '../components/MailData';
 import { useDispatch } from 'react-redux';
 import { deleteMail } from '../store/mailActions';
 
- const InboxEmail = () => {
+ const SentEmail = () => {
   const dispatch = useDispatch()
   const deleteMailHandler=(mail)=>{
     dispatch(deleteMail(mail))
@@ -16,10 +16,10 @@ import { deleteMail } from '../store/mailActions';
 
     const mails = useSelector((state)=>state.mail.mailData)
     const email = localStorage.getItem("email")
-    const inboxMail = mails.filter(mail=>mail.to === email )
+    const sentMail = mails.filter(mail=>mail.to !== email )
 
-    const mailItem = inboxMail.map(mail=>(
-       <div> <MailData key={mail.id} mail={mail} toorFrom='From' />
+    const mailItem = sentMail.map(mail=>(
+       <div><MailData key={mail.id} mail={mail} toorFrom='to' />
        {/* <Col xs={2}>
        <Button mail={mail} onClick={deleteMailHandler(mail)} variant="danger">Delete</Button>
      </Col> */}
@@ -36,4 +36,4 @@ import { deleteMail } from '../store/mailActions';
   )
 }
 
-export default InboxEmail;
+export default SentEmail;

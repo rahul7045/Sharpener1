@@ -25,6 +25,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
         <Nav className="me-auto">
           {show && <NavLink to='/compose'>Compose Email</NavLink>}
           {show && <NavLink to='/inbox' >Inbox Email {unReadMessage}</NavLink>}
+          {show && <NavLink to='/sent' >Sent Email</NavLink>}
+
 
         </Nav>
         {show && <Button onClick={logoutHandler} className='float-right mr-3'>Logout</Button>}
