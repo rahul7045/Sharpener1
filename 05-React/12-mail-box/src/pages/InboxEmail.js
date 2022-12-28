@@ -15,6 +15,7 @@ import { deleteMail } from '../store/mailActions';
 
 
     const mails = useSelector((state)=>state.mail.mailData)
+    console.log("Inside inbox mails" , mails)
     const email = localStorage.getItem("email")
     const inboxMail = mails.filter(mail=>mail.to === email )
 

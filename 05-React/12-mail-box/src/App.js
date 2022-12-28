@@ -21,7 +21,7 @@ function App() {
         <Route path="/inbox/*" element={<InboxEmail />}  />
         <Route path="/sent/*" element={<SentEmail />}  />
         {/* <Route path='/inbox/page' element={<MailPage  />} /> */}
-        <Route path="/inbox/:id" element={<MailPage />} />
+        <Route path="/:id" element={<MailPage />} />
         <Route path="/sent/:id" element={<MailPage />} />
 
       </Routes>
