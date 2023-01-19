@@ -115,7 +115,7 @@ export const updateMail=(emailUrl , loggedUserEmail , currentMail)=>{
             const data = await res.json();
 
             if(res.ok){
-                if(data.length>currentMail.length){
+                // if(data.length>currentMail.length){
  
                     let mailData =[]
                     let unReadMessage =0
@@ -132,7 +132,7 @@ export const updateMail=(emailUrl , loggedUserEmail , currentMail)=>{
                             unReadMessage : unReadMessage
                            })
                     )
-                }
+                // }
             }else{
                 throw data.error
             }

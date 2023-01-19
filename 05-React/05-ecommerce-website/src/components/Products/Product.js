@@ -55,7 +55,7 @@ const Product = (props) => {
   const str = email.replace("@", "");
   const newstr = str.replace(".", "");
 
-  fetch(`https://crudcrud.com/api/d17701e0fae6453a8e080745d7b41881/cart${newstr}`,
+  fetch(` https://crudcrud.com/api/33cc21d6d23741209aa12c36f4f1279b/cart${newstr}`,
     {
       method: "GET",
       headers: {

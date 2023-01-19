@@ -18,13 +18,13 @@ import { replacemail , updateMail } from '../store/mailActions'
     dispatch(replacemail(emailUrl ,loggedEmail))
   }
 
-  setInterval(()=>{
-    if(isLoggedIn){
-      const loggedEmail = localStorage.getItem('email');
-      const emailUrl = loggedEmail.replace("@","").replace(".","") 
-      dispatch(updateMail(emailUrl , loggedEmail , currentMail))
-    }
-  } , 2000)
+  // setInterval(()=>{
+  //   if(isLoggedIn){
+  //     const loggedEmail = localStorage.getItem('email');
+  //     const emailUrl = loggedEmail.replace("@","").replace(".","") 
+  //     dispatch(updateMail(emailUrl , loggedEmail , currentMail))
+  //   }
+  // } , 2000)
 
   return (
     <h1>Welcome To Mail Box</h1>
