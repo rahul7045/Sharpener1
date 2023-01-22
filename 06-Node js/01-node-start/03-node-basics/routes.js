@@ -22,7 +22,7 @@ if(url==='/'){
     })
     req.on('end',()=>{
       const parseBody = Buffer.concat(body).toString();
-      const message = parseBody.split("=")[1];
+      const message = parseBody.split("=")[0];
       console.log(message)
       fs.writeFileSync('message.txt' , message)
     })
