@@ -15,8 +15,7 @@ import './ExpenseItem.css'
              })
             const data = await res.json();
         
-            if(res.ok){
-                
+            if(res.ok){        
                 alert("Expense Deleted Successfully")
                 props.deleteItem(props.item)
         

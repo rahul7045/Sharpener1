@@ -55,7 +55,7 @@ function NavBar(props) {
              
             </Nav>
 
-            <Button onClick={props.onShowCart}  variant="primary">Cart<span>{numberOfCartItems}</span></Button>
+            {isLoggedIn && <Button onClick={props.onShowCart}  variant="primary">Cart<span>{numberOfCartItems}</span></Button>}
             </Navbar.Collapse>
   s        </Container>
         </Navbar>

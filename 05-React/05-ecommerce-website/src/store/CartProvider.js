@@ -6,7 +6,7 @@ const defaultCartState = {
   items: [],
   totalAmount: 0,
 };
-const url = " https://crudcrud.com/api/33cc21d6d23741209aa12c36f4f1279b";
+const url = "https://crudcrud.com/api/fae5814c0ee0441991992a04bebdcf15";
 
 async function getCartItemsFromCrud() {
   const email = localStorage.getItem("email");

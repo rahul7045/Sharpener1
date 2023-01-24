@@ -12,7 +12,7 @@ const MealItem = (props) => {
     id: parseInt(props.id),
     name : props.name,
     price : parseInt(props.price),
-    amount : parseInt(inputAmountRef.current.value) 
+    amount : parseInt(inputAmountRef.current.value == "" ? 1: inputAmountRef.current.value)
    }
    cartCtx.addItem(newItem)
    console.log(newItem)
