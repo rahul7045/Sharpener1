@@ -35,10 +35,10 @@ import axios from 'axios'
    .then(data=>{
         if(isLogin){
             console.log("Login Completed")
-            
+            alert(data.data)
             //console.log(data.idToken)
             // history.replace('/store')
-            alert("Log In Successful")
+            //alert("Log In Successful")
         }else{
             console.log(data.data)
              console.log("Sign up Completed")
