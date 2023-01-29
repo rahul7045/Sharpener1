@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const User = require('../models/User')
 exports.signup = async (req , res , next)=>{
     try{
@@ -14,8 +15,12 @@ exports.signup = async (req , res , next)=>{
     }else{
         
         console.log("User added Successfully")
-        const data = await User.create({email : email , password : password})
-       res.status(200).json("Sign Up Successful")
+         bcrypt.hash(password , 10  , async (err , hash)=>{
+          if(!err){
+            const data = await User.create({email : email , password : hash})
+            res.status(200).json("Sign Up Successful")
+          }
+         })
     }
 
     }catch(error){

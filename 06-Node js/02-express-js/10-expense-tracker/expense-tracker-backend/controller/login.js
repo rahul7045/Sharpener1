@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcrypt = require('bcrypt')
 
 exports.login = async (req , res , next)=>{
     try{
@@ -8,13 +9,21 @@ exports.login = async (req , res , next)=>{
     const data1 = await User.findByPk(email)
 
     if(data1){
-        if(data1.password == password){
-            console.log("User Available")
-            res.status(200).json("Login Successful")
-        }else{
-            res.json("Password is Wrong")
-            console.log("User Password is wrong ")
-        }
+
+        bcrypt.compare(password , data1.password , (err , result)=>{
+            if(!err){
+                res.status(200).json("Login Successful")
+            }
+            else{
+                res.json("Password is Wrong")
+            }
+        })
+        // if(data1.password == password){
+        //     console.log("User Available")
+        //     res.status(200).json("Login Successful")
+        // }else{
+        //     console.log("User Password is wrong ")
+        // }
     }else{
         res.json("User Not Found")
 
