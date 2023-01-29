@@ -5,6 +5,7 @@ const signUpRoutes = require('./routes/signup')
 const expenseRoutes = require('./routes/expense')
 const bodyParser = require('body-parser')
 const User = require('./models/User')
+const Expense = require('./models/Expense')
 
 const app = express()
 var cors = require('cors')
@@ -16,6 +17,9 @@ app.use('/login',loginRoutes)
 app.use('/signup' , signUpRoutes)
 
 app.use('/expense' , expenseRoutes )
+
+User.hasMany(Expense)
+Expense.belongsTo(User)
 
 
 sequelize

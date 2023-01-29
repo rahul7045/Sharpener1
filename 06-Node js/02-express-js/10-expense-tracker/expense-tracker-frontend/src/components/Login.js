@@ -37,11 +37,18 @@ import { useNavigate } from 'react-router-dom';
    .then(data=>{
         if(isLogin){
             console.log("Login Completed")
-            alert(data.data)
+            if(data.data.message == "Login Successful"){
+              alert(data.data.message)
+              navigate("/expenses")
+              localStorage.setItem('token' , data.data.token)
+
+            }else{
+              alert(data.data)
+
+            }
             //console.log(data.idToken)
             // history.replace('/store')
             //alert("Log In Successful")
-            navigate("/expenses")
         }else{
             console.log(data.data)
              console.log("Sign up Completed")

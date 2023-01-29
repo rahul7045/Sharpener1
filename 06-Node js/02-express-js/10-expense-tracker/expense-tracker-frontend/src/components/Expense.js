@@ -22,8 +22,8 @@ const Expenses = () => {
     };
 
     try{
-
-    const data = await axios.post('http://localhost:5000/expense/addForm',obj)
+    const token = localStorage.getItem('token')
+    const data = await axios.post('http://localhost:5000/expense/addForm',obj , {headers : {'Authorization' : token}})
 
     //console.log("expense data received" , data.data.data)
     alert("data Added Successfully")
@@ -47,7 +47,8 @@ const Expenses = () => {
 
   async function fetchData(){
     try{
-      const data = await axios.get('http://localhost:5000/expense/getExpense')
+      let token = localStorage.getItem('token')
+      const data = await axios.get('http://localhost:5000/expense/getExpense',{headers : {'Authorization' : token}})
       console.log(data.data.data)
       setExpenses(data.data.data)
     }catch(err){
