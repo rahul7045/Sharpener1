@@ -2,6 +2,7 @@ const express = require('express')
 const sequelize = require('./utils/database')
 const loginRoutes = require('./routes/login')
 const signUpRoutes = require('./routes/signup')
+const expenseRoutes = require('./routes/expense')
 const bodyParser = require('body-parser')
 const User = require('./models/User')
 
@@ -13,6 +14,8 @@ app.use(cors())
 
 app.use('/login',loginRoutes)
 app.use('/signup' , signUpRoutes)
+
+app.use('/expense' , expenseRoutes )
 
 
 sequelize

@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/esm/Container';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
  const Login = () => {
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
+    const navigate = useNavigate()
 
     const[isLogin , setIsLogin]=useState(true)
 
@@ -39,6 +41,7 @@ import axios from 'axios'
             //console.log(data.idToken)
             // history.replace('/store')
             //alert("Log In Successful")
+            navigate("/expenses")
         }else{
             console.log(data.data)
              console.log("Sign up Completed")
